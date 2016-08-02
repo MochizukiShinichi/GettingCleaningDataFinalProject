@@ -1,5 +1,5 @@
 ---
-# Getting and cleaning data on project Human Activity Recognition Using Smartphones Dataset
+# Getting and cleaning data on project "Human Activity Recognition Using Smartphones Dataset"
 ---
 # File description
 ## run_analysis.R 
@@ -10,14 +10,17 @@ imports data from project Human Activity Recognition Using Smartphones Dataset a
 3. Creates new data set with the average of each variable for each activity and each subject and export to 'averageByGroup.csv'.
 
 ## averageByGroup.csv
-
 contains average of variables \(mean or standard deviation of the measurements\) for each activity and each subject.
----
+
+
 # Feature names
 
 There are a total of 10299 observations of 563 variables in the orginial data set and 180 \(30 subjects and 6 activities) observations of 79 averaged features \(features that are mean or standard deviation for each measurement\).
 
-##column names are: 
+##Rows:
+Each row corresponds to one subject+activity combination.
+
+##Columns: 
 
 ### subjectID :  
 study subjects, each individual takes:
