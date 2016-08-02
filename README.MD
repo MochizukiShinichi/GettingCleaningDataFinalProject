@@ -11,7 +11,7 @@ imports data from project Human Activity Recognition Using Smartphones Dataset a
 
 ## averageByGroup.csv
 
-contains average of variables (mean or standard deviation of the measurements\) for each activity and each subject.
+contains average of variables \(mean or standard deviation of the measurements\) for each activity and each subject.
 ---
 # Feature names
 
