@@ -44,7 +44,7 @@
         averageByGroup <- group_by(meanAndStandardDeviation,subjectID,activity) %>%
                 summarize_each(funs(mean)) 
         # export data set to a csv file
-        write.table(averageByGroup, file = 'averageByGroup.csv')
+        write.table(averageByGroup, file = 'averageByGroup.txt', row.name=FALSE)
        
        
         
