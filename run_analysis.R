@@ -43,6 +43,8 @@
         # group data by subject ID and activity, then find mean for each group, store in a new variable averageByGroup 
         averageByGroup <- group_by(meanAndStandardDeviation,subjectID,activity) %>%
                 summarize_each(funs(mean)) 
+        # export data set to a csv file
+        write.table(averageByGroup, file = 'averageByGroup.csv')
        
        
         
