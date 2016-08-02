@@ -113,7 +113,7 @@ X.fBodyBodyGyroMag.meanFreq..
 X.fBodyBodyGyroJerkMag.mean..
 X.fBodyBodyGyroJerkMag.std..
 X.fBodyBodyGyroJerkMag.meanFreq..
----
+
 
 Full information of features can be found in [features_info.txt](./features_info.txt);
 All feature names can be found in [features.txt](./features.txt);
