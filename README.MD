@@ -11,11 +11,11 @@ imports data from project Human Activity Recognition Using Smartphones Dataset a
 
 ## averageByGroup.csv
 
-contains average of variables (mean or standard deviation of the measurements) for each activity and each subject.
+contains average of variables (mean or standard deviation of the measurements\) for each activity and each subject.
 ---
 # Feature names
 
-There are a total of 10299 observations of 563 variables in the orginial data set and 180 (30 subjects and 6 activities) observations of 79 averaged features (features that are mean or standard deviation for each measurement).
+There are a total of 10299 observations of 563 variables in the orginial data set and 180 \(30 subjects and 6 activities) observations of 79 averaged features \(features that are mean or standard deviation for each measurement\).
 
 ##column names are: 
 
@@ -111,8 +111,10 @@ X.fBodyBodyGyroJerkMag.mean..
 X.fBodyBodyGyroJerkMag.std..
 X.fBodyBodyGyroJerkMag.meanFreq..
 ---
+
 Full information of features can be found in [features_info.txt](./features_info.txt);
 All feature names can be found in [features.txt](./features.txt);
 Information of the orginial experiment can be found in [originalREADME.txt](./originalREADME.txt)
+
 ---
 Getting and Cleaning Data Course Project submitted by NAN JIANG
