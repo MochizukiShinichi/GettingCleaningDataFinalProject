@@ -1,0 +1,89 @@
+---
+title: Human Activity Recognition
+author: Nan Jiang
+---
+```{r libraries.etc, echo=FALSE, results='hide', message=FALSE}
+cachedata = TRUE
+cachemodels = TRUE
+```
+
+## Summary
+In this report, I use machine learning algorithm to analyze the data obtained from activity tracker in order to build a model which predicts the activity type from given data.
+
+## Data Processing
+
+1. Download data and store them in two variables named **training** and **testing**.
+```{r}
+library(caret)
+download.file('https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv','train.csv')
+download.file('https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv','test.csv')
+training <- read.csv('train.csv')
+testing <- read.csv('test.csv')
+```
+2. Preprocess the data
+        __ Delete NAs 
+        __ Delete blank spaces 
+        __ De-select flag variables which contains obvious irrelevant information w.r.t. our result, such as X, user_name and time variables.
+```{r}
+training <- training[,colSums(!is.na(training))== nrow(training)]
+training <- training[,colSums(!(training == ''))== nrow(training)]
+testing <- testing[,colSums(!is.na(testing))== nrow(testing)]
+testing <- testing[,colSums(!(testing == ''))== nrow(testing)]
+```
+Before proceeding to the next step, check the dimensions of resulting data.frames. 
+```{r}
+dim(training)
+dim(testing)
+```
+Luckily, training and testing data have the same valid variables.
+
+By inspecting the variables we delete the first 7 variables that are simply tags of recording. They include:
+```{r}
+names(training)[1:7]
+testing <- testing[,-(1:7)]
+training <- training[,-(1:7)]
+```
+
+## Model Selection
+
+1. Considering the type of problem in question, which is **supervised classfication**, and the **large** number of features, I am more inclined to vectorized method.
+
+2. As a physics student, I have the intuition that only a few variables would account for the most variance, especially accelerations. Therefore I speculate that **dimension reduction** would be important to greatly simplify the model.
+
+Taking into these considerations, I choose to use **k-nearest neibougher** classification algorithm with **principle component analysis** as the preprocessing method.
+
+### Cross Validation
+Before proceeding, I first use cross validation to estimate the out of sample error.
+```{r model.fitting.chunk2, cache = cachemodels}
+ind <- createDataPartition(training$classe, p=0.95, list= FALSE)
+training_train <- training[ind,]
+training_test <- training[-ind,]
+model_naive <- train(factor(classe)~.,training_train,method='knn',preProcess=c('center','scale','pca'))
+confusionMatrix(predict(model_naive,training_test),training_test$classe)$overall['Accuracy']
+```
+Results have passed the cross validation, I can now build models based on the whole training set.
+
+### Final Model
+```{r model.fitting.chunk1, cache = cachemodels}
+model<- train(factor(classe)~.,training,method='knn',preProcess=c('center','scale','pca'))
+confusionMatrix(predict(model,training),training$classe)$overall['Accuracy']
+```
+The in sample accuracy is good enough and I would expect the out of sample error acceptable.
+
+### Other Models I have tried
+1. glm (low accuracy)
+2. random forests (time inefficient)
+3. svm (a little less time efficient, little improvement)
+
+## Result
+The model yields the final prediction:
+```{r}
+predict(model,testing)
+```
+
+
+
+
+
+
+```
