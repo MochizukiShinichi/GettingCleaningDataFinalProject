@@ -1,5 +1,5 @@
 ---
-# Getting and cleaning data on project "Human Activity Recognition Using Smartphones Dataset"
+# "Human Activity Recognition Using Smartphones Dataset"
 ---
 # File description
 ## run_analysis.R 
