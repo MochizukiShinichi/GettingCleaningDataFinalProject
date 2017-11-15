@@ -2,22 +2,24 @@
 # "Human Activity Recognition Using Smartphones Dataset"
 ---
 # Data Cleaning Files
-## run_analysis.R 
+### run_analysis.R 
 
 imports data from project Human Activity Recognition Using Smartphones Dataset and does the following:
 1. Merges the training and the test sets to create one data set.
 2. Extracts only the measurements on the mean and standard deviation for each measurement.
 3. Creates new data set with the average of each variable for each activity and each subject and export to 'averageByGroup.csv'.
 
-## averageByGroup.csv
+### averageByGroup.csv
 
 contains average of variables \(mean or standard deviation of the measurements\) for each activity and each subject.
----
+
+
 # Model Building Files
 
-## buildModel.rmd
+### buildModel.rmd
 
 R markdown file for model building/analysis.
+
 ---
 # Information of features and observations
 
