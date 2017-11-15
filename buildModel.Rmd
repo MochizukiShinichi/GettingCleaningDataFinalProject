@@ -1,6 +1,5 @@
 ---
 title: Human Activity Recognition
-author: Nan Jiang
 ---
 ```{r libraries.etc, echo=FALSE, results='hide', message=FALSE}
 cachedata = TRUE
